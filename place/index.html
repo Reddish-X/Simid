@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>// THE PLACE</title>
+<style>
+  :root { --bg: #070709; --text: #e8e8ec; --dim: #8a8a93; --line: rgba(255,255,255,0.10); --ice: #9db8ff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: radial-gradient(ellipse at center, #0c0c11 0%, var(--bg) 70%);
+    color: var(--text);
+    font-family: Consolas, "Courier New", monospace;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 24px;
+  }
+  .box { border: 1px solid var(--line); padding: 48px 40px; max-width: 560px; background: rgba(14,14,18,0.8); }
+  h1 { font-size: 20px; letter-spacing: 6px; color: var(--ice); margin-bottom: 18px; font-weight: 400; }
+  pre { color: var(--dim); font-size: 13px; line-height: 1.35; margin-bottom: 20px; }
+  p { color: var(--dim); font-size: 13px; line-height: 1.7; }
+  b { color: var(--text); font-weight: normal; }
+  .file { color: var(--ice); }
+  .back { display: inline-block; margin-top: 24px; color: var(--dim); text-decoration: none; font-size: 12px; letter-spacing: 2px; border: 1px solid var(--line); padding: 8px 16px; }
+  .back:hover { color: var(--ice); border-color: var(--ice); }
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>// THE PLACE</h1>
+    <pre>
+      __  __
+     |  ||  |
+     |  ||  |
+     |__||__|  ←  your website goes here
+    </pre>
+    <p>
+      This is a placeholder.<br />
+      Drop your website into the <b>place</b> folder<br />
+      and name the file <b class="file">index.html</b>.<br />
+      It will automatically appear where the <b>PLACE</b> link points.
+    </p>
+    <a class="back" href="../index.html">◂ BACK TO SIMID MEDIA</a>
+  </div>
+</body>
+</html>
