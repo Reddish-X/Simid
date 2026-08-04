@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SIMID MEDIA // everything is 3D</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 88,30 88,70 50,95 12,70 12,30' fill='%239db8ff'/%3E%3Cpolygon points='50,25 70,38 70,62 50,75 30,62 30,38' fill='%235d5d66'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="portal">
+
+<!-- ═══════════ 3D LAYERS ═══════════ -->
+<canvas id="bg3d"></canvas>
+<div class="css3d" id="css3d"><!-- 3D panels injected here --></div>
+<div class="overlay-noise"></div>
+<div class="overlay-scan"></div>
+<div class="overlay-vignette"></div>
+
+<!-- ═══════════ TOP BAR ═══════════ -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo"><b>SIMID</b>_MEDIA</a>
+  <div class="nav-right">
+    <span class="nav-hint">WASD FLY · DRAG LOOK · CLICK PANEL · 1-7 WARP</span>
+    <span class="nav-status" id="netStatus">SYS::BOOT</span>
+  </div>
+</nav>
+
+<!-- ═══════════ 3D PANELS ═══════════ -->
+<section class="panel3d" id="p-home" data-panel="home">
+  <div class="panel-head">
+    <span class="panel-title"><b>00</b> // HOME</span>
+    <span class="panel-tip">DRAG TO LOOK AROUND</span>
+  </div>
+  <div class="panel-body">
+    <header class="hero-mini">
+      <pre class="ascii hero-ascii" id="heroAscii"></pre>
+      <h1 class="hero-title glitch" data-text="SIMID MEDIA">SIMID MEDIA</h1>
+      <p class="hero-sub" id="heroSub"></p>
+      <div class="hero-tags">
+        <span class="tag">#MAXIMALISM</span>
+        <span class="tag">#EVERYTHING_IS_3D</span>
+        <span class="tag">#MONOCHROME</span>
+        <span class="tag">#CRYSTAL_SHINE</span>
+      </div>
+      <div class="hero-hint">FLY WITH <b>W</b><b>A</b><b>S</b><b>D</b> · LOOK WITH <b>DRAG</b> · <b>R</b>/<b>F</b> UP/DOWN · WHEEL ZOOM</div>
+    </header>
+  </div>
+</section>
+
+<section class="panel3d" id="p-links" data-panel="links">
+  <div class="panel-head">
+    <span class="panel-title"><b>01</b> // PORTALS</span>
+    <span class="panel-tip">LINKS LIVE IN js/config.js</span>
+  </div>
+  <div class="panel-body">
+    <div class="section-head">
+      <h2 class="section-title">// PORTALS</h2>
+      <p class="section-desc">// places i exist on the internet</p>
+    </div>
+    <div class="cards-grid">
+      <a href="#" class="card" data-link="discord" target="_blank" rel="noopener">
+        <pre class="card-ascii" data-art="discord"></pre>
+        <h3>DISCORD</h3>
+        <span class="card-link">invite ▸</span>
+      </a>
+      <a href="#" class="card" data-link="instagram" target="_blank" rel="noopener">
+        <pre class="card-ascii" data-art="camera"></pre>
+        <h3>INSTAGRAM</h3>
+        <span class="card-link">follow ▸</span>
+      </a>
+      <a href="#" class="card" data-link="sites" target="_blank" rel="noopener">
+        <pre class="card-ascii" data-art="compass"></pre>
+        <h3>OTHER SITES</h3>
+        <span class="card-link">warp ▸</span>
+      </a>
+      <a href="place/" class="card" data-link="place">
+        <pre class="card-ascii" data-art="rocket"></pre>
+        <h3>THE PLACE</h3>
+        <span class="card-link">drop a site here ▸</span>
+      </a>
+    </div>
+    <p class="micro" id="linkHint" style="margin-top:14px">// discord &amp; instagram links are placeholders — edit them in js/config.js</p>
+  </div>
+</section>
+
+<section class="panel3d" id="p-chat" data-panel="chat">
+  <div class="panel-head">
+    <span class="panel-title"><b>02</b> // GLOBAL CHAT</span>
+    <span class="panel-tip">50 CHARS MAX · NO RULES</span>
+  </div>
+  <div class="panel-body">
+    <div class="section-head">
+      <h2 class="section-title">// GLOBAL CHAT</h2>
+      <p class="section-desc">// everyone on the planet in one tiny room</p>
+    </div>
+    <div class="chat-frame">
+      <div class="chat-statusbar">
+        <span id="chatConn">█ OFFLINE-DEMO</span>
+        <span id="chatCount">0 MSG</span>
+        <span>// SIMID.MEDIA.CHANNEL</span>
+      </div>
+      <div class="chat-window" id="chatWindow"></div>
+      <form class="chat-form" id="chatForm" autocomplete="off">
+        <input type="text" id="chatName" class="chat-input chat-name" maxlength="16" placeholder="name" />
+        <input type="text" id="chatText" class="chat-input" maxlength="50" placeholder="type something... (50)" />
+        <button type="submit" class="btn btn-primary chat-send">SEND ▸</button>
+        <span class="chat-counter" id="chatCounter">0/50</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="panel3d" id="p-arcade" data-panel="arcade">
+  <div class="panel-head">
+    <span class="panel-title"><b>03</b> // ARCADE</span>
+    <span class="panel-tip">SCORE RESETS ON RELOAD</span>
+  </div>
+  <div class="panel-body">
+    <div class="arcade-box">
+      <pre class="ascii" data-art="rifle"></pre>
+      <h2 class="section-title">// 3D MULTIPLAYER SHOOTER</h2>
+      <p class="section-desc">// arena FPS // bots always // real players when firebase is on</p>
+      <div class="arcade-stats">
+        <div class="hud-box">SCORE<b id="arcadeBest">0</b></div>
+        <div class="hud-box">KILLS<b id="arcadeKills">0</b></div>
+        <div class="hud-box">PLAYERS<b id="arcadePlayers">0</b></div>
+      </div>
+      <button class="btn btn-primary" id="launchBtn">DEPLOY ▸ ENTER THE ARENA</button>
+      <div class="arcade-controls">
+        <span><span class="keycap">WASD</span> MOVE</span>
+        <span><span class="keycap">MOUSE</span> AIM</span>
+        <span><span class="keycap">CLICK</span> FIRE</span>
+        <span><span class="keycap">SPACE</span> JUMP</span>
+        <span><span class="keycap">ESC</span> EXIT</span>
+      </div>
+      <p class="micro">// score lives in RAM only — reload the page and it's gone. that's the deal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel3d" id="p-gallery" data-panel="gallery">
+  <div class="panel-head">
+    <span class="panel-title"><b>04</b> // SIGHT STORAGE</span>
+    <span class="panel-tip">YOU LOOK · I UPLOAD</span>
+  </div>
+  <div class="panel-body">
+    <div class="section-head">
+      <h2 class="section-title">// SIGHT STORAGE</h2>
+      <p class="section-desc">// random pictures // uploads need the admin key</p>
+    </div>
+    <div class="gallery-toolbar">
+      <div class="upload-box">
+        <label for="fileInput" class="btn btn-ghost">SELECT PIC ⬆</label>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <button class="btn btn-ghost" id="adminModeBtn">ADMIN ⌨</button>
+        <input type="password" id="adminKeyInput" class="chat-input admin-key" placeholder="admin key" hidden />
+        <button class="btn btn-primary" id="uploadBtn" hidden>UPLOAD ▸</button>
+        <span id="uploadStatus" class="micro"></span>
+      </div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <div class="gallery-empty" id="galleryEmpty">// NO SIGHT LOADED //</div>
+  </div>
+</section>
+
+<section class="panel3d" id="p-note" data-panel="note">
+  <div class="panel-head">
+    <span class="panel-title"><b>05</b> // SIMID'S NOTE</span>
+    <span class="panel-tip">I WRITE · YOU READ</span>
+  </div>
+  <div class="panel-body">
+    <div class="section-head">
+      <h2 class="section-title">// SIMID'S NOTE</h2>
+      <p class="section-desc">// a note for the public // written with the admin key</p>
+    </div>
+    <div class="note-frame">
+      <div class="note-statusbar">
+        <span>█ SIMID.PUBLIC.NOTE</span>
+        <span id="noteDate">--/--/--</span>
+        <button class="btn btn-ghost btn-tiny" id="noteEditBtn">EDIT ✎</button>
+      </div>
+      <div class="note-body" id="noteBody">
+        <pre class="ascii note-placeholder" data-art="note"></pre>
+      </div>
+      <div class="note-editor" id="noteEditor" hidden>
+        <input type="password" id="noteKey" class="chat-input admin-key" placeholder="admin key" />
+        <textarea id="noteText" class="note-textarea" maxlength="600" placeholder="write something for the public..."></textarea>
+        <div class="note-actions">
+          <button class="btn btn-primary" id="noteSave">SAVE ▸</button>
+          <button class="btn btn-ghost" id="noteCancel">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHIP NAV ═══════════ -->
+<div class="chips" id="navChips">
+  <button class="chip active" data-fly="home"><span class="k">1</span>HOME</button>
+  <button class="chip" data-fly="links"><span class="k">2</span>LINKS</button>
+  <button class="chip" data-fly="chat"><span class="k">3</span>CHAT</button>
+  <button class="chip" data-fly="arcade"><span class="k">4</span>ARCADE</button>
+  <button class="chip" data-fly="gallery"><span class="k">5</span>GALLERY</button>
+  <button class="chip" data-fly="note"><span class="k">6</span>NOTE</button>
+  <a class="chip" href="place/"><span class="k">7</span>PLACE</a>
+</div>
+
+<!-- ═══════════ FPS HUD ═══════════ -->
+<div class="fps-hud" id="fpsHud">
+  <div id="fpsCrosshair"></div>
+  <div id="fpsHit"></div>
+  <div id="fpsHealthWrap">
+    <div class="lbl" id="fpsHp">HP 100</div>
+    <div id="fpsHealthBar"><i id="fpsHealthFill"></i></div>
+  </div>
+  <div id="fpsScoreWrap">
+    <div class="v" id="fpsScore">0</div>
+    <div class="lbl" id="fpsKills">KILLS 0 · HP 100</div>
+  </div>
+  <div id="fpsTop"><span id="fpsPlayers">PLAYERS 1 · BOTS 6</span></div>
+  <div id="fpsFeed"></div>
+</div>
+
+<div id="fpsPause">
+  <div>
+    <h2>// PAUSED</h2>
+    <p id="fpsPauseMsg">CLICK TO RESUME · ESC TO EXIT THE ARENA</p>
+  </div>
+</div>
+
+<div class="touch-ctrl" id="touchJoystick"><i></i></div>
+<button class="touch-ctrl" id="touchShoot">FIRE</button>
+
+<!-- ═══════════ TOAST ═══════════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/ascii.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/uploads.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
